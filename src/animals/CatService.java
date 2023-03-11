@@ -113,7 +113,7 @@ public class CatService {
         while (catIterator.hasNext()) {//до тех пор, пока в списке есть элементы
 
             Cat nextCat = catIterator.next();//получаем следующий элемент
-            if (catId == nextCat.getId()) {
+            if (nextCat.getId()==catId) {
                 catIterator.remove();//удаляем кота с нужным именем
             }
         }

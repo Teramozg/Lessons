@@ -37,5 +37,15 @@ public class Calculate {
         System.out.println("Частное равно "+ (a/b));
 
     }
+    public int  factorial(int n){
+        if(n==1){
+            return 1;
+        }
+        else{
+        int result=factorial(n-1)*n;
+            return result;
+        }
+
+    }
 
 }
