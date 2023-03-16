@@ -9,6 +9,7 @@ public class Trening {
                 System.out.println("Вводите 2 если нужно выполнить вычитание");
                 System.out.println("Вводите 3 если нужно выполнить умножение");
                 System.out.println("Вводите 4 если нужно выполнить деление");
+                System.out.println("Вводите 5 если нужно вычислить факториал");
 
                 Scanner scan = new Scanner(System.in);
                 int action = scan.nextInt();
@@ -20,9 +21,10 @@ public class Trening {
                     c.multiply();
                 } else if (action == 4) {
                     c.divide();
-                } else {
-                    System.out.println("Выберите число из списка.");
+                } else if(action==5) {
+                    System.out.println(c.factorial(5));
                 }
+
             }
     }
 }

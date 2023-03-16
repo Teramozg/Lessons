@@ -1,5 +1,7 @@
 package animals;
 
+import java.util.Objects;
+
 public class  Cat extends Animal {
     private String name;
     private String gender;
@@ -52,4 +54,16 @@ public class  Cat extends Animal {
     }
 
 
+    @Override
+    public boolean equals(Object o) { //tom.equals(bob);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cat cat = (Cat) o;
+        return Objects.equals(name, cat.name) && Objects.equals(gender, cat.gender) && Objects.equals(owner, cat.owner);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, gender, owner);
+    }
 }

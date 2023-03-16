@@ -1,0 +1,1 @@
+Car{vin=0, power=0, owner='null', country='null'}

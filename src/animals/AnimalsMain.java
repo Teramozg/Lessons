@@ -1,12 +1,6 @@
 package animals;
 
-import com.sun.xml.internal.ws.policy.PolicyMapUtil;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class AnimalsMain {

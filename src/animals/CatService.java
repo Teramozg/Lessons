@@ -105,7 +105,7 @@ public class CatService {
         }
         return max;
     }
-// TODO: 07.03.2023 "причесать приложение" create,read, update, delete.CRUD
+// TODO: 12.03.2023  коллекции map,set,  базы данных PostGresSQL;
 
     public Cat delCat(int catId) {
         List<Cat> listCat = getAllListCats();
@@ -113,20 +113,23 @@ public class CatService {
         while (catIterator.hasNext()) {//до тех пор, пока в списке есть элементы
 
             Cat nextCat = catIterator.next();//получаем следующий элемент
-            if (nextCat.getId()==catId) {
+            if (nextCat.getId() == catId) {
                 catIterator.remove();//удаляем кота с нужным именем
             }
         }
+        FileWriter writer = null;
         try {
-            FileOutputStream fos = new FileOutputStream("src/animals/cats.txt");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-
-            oos.writeObject(catIterator);
-
-            oos.close();
-
+            writer = new FileWriter("src/animals/cats.txt");
+            for (Cat cat : listCat) {
+                int id = cat.getId();
+                String name = cat.getName();
+                String gender = cat.getGender();
+                int idOwner = cat.getOwner().getId();
+                writer.write(id + "," + name +","+gender+","+idOwner+ System.getProperty("line.separator"));
+            }
+            writer.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return null;
     }
